@@ -7,99 +7,35 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #F5F0E8;
-    --espresso: #2C1A0E;
-    --caramel: #C8873A;
-    --latte: #D4A96A;
-    --foam: #FBF7F0;
-    --dark-roast: #1A0F08;
-    --mid-brown: #6B4226;
-    --text-light: #8B7355;
+    --cream: #F5F0E8; --espresso: #2C1A0E; --caramel: #C8873A; --latte: #D4A96A;
+    --foam: #FBF7F0; --dark-roast: #1A0F08; --mid-brown: #6B4226; --text-light: #8B7355;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Noto Sans KR', sans-serif;
-    background: var(--cream);
-    color: var(--espresso);
-    overflow-x: hidden;
-  }
+  body { font-family: 'Noto Sans KR', sans-serif; background: var(--cream); color: var(--espresso); overflow-x: hidden; }
 
   /* ─── NAV ─── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 20px 60px;
-    background: rgba(245,240,232,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(200,135,58,0.15);
-    transition: padding 0.3s;
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(245,240,232,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200,135,58,0.15); transition: padding 0.3s; }
   nav.scrolled { padding: 14px 60px; }
-  .nav-logo {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: var(--espresso);
-    letter-spacing: -0.05em;
-    text-decoration: none;
-  }
+  .nav-logo { font-family: 'Noto Sans KR', sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--espresso); letter-spacing: -0.05em; text-decoration: none; }
   .nav-logo span { color: var(--caramel); }
-
   .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a {
-    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--espresso); text-decoration: none;
-    position: relative; padding-bottom: 4px;
-  }
-  .nav-links a::after {
-    content: ''; position: absolute; bottom: 0; left: 0;
-    width: 0; height: 1.5px; background: var(--caramel); transition: width 0.3s;
-  }
+  .nav-links a { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--espresso); text-decoration: none; position: relative; padding-bottom: 4px; }
+  .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background: var(--caramel); transition: width 0.3s; }
   .nav-links a:hover::after { width: 100%; }
 
   /* ─── HERO ─── */
   .hero { height: 100vh; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
-  .hero-left {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 120px 60px 80px; background: var(--espresso); position: relative; overflow: hidden;
-  }
-  .hero-left::before {
-    content: ''; position: absolute; top: -100px; right: -100px;
-    width: 400px; height: 400px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(200,135,58,0.15) 0%, transparent 70%);
-  }
-  .hero-eyebrow {
-    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--caramel); margin-bottom: 24px; opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
-  }
-  .hero-title {
-    font-family: 'Noto Sans KR', sans-serif; font-size: clamp(2.5rem, 4vw, 4.5rem);
-    font-weight: 900; line-height: 1.2; color: var(--cream); margin-bottom: 28px;
-    letter-spacing: -0.02em; opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
-  }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 120px 60px 80px; background: var(--espresso); position: relative; overflow: hidden; }
+  .hero-left::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(200,135,58,0.15) 0%, transparent 70%); }
+  .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--caramel); margin-bottom: 24px; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
+  .hero-title { font-family: 'Noto Sans KR', sans-serif; font-size: clamp(2.5rem, 4vw, 4.5rem); font-weight: 900; line-height: 1.2; color: var(--cream); margin-bottom: 28px; letter-spacing: -0.02em; opacity: 0; animation: fadeUp 0.8s 0.4s forwards; }
   .hero-title em { font-style: normal; color: var(--latte); display: block; }
-  .hero-desc {
-    font-size: 1rem; line-height: 1.8; color: rgba(245,240,232,0.65);
-    max-width: 380px; margin-bottom: 48px; font-weight: 300;
-    opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
-  }
-  .hero-cta {
-    display: inline-flex; align-items: center; gap: 12px;
-    background: var(--caramel); color: #fff; padding: 16px 36px;
-    font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
-    text-decoration: none; font-weight: 700; opacity: 0; animation: fadeUp 0.8s 0.8s forwards;
-    transition: background 0.3s, transform 0.2s; width: fit-content;
-  }
+  .hero-desc { font-size: 1rem; line-height: 1.8; color: rgba(245,240,232,0.65); max-width: 380px; margin-bottom: 48px; font-weight: 300; opacity: 0; animation: fadeUp 0.8s 0.6s forwards; }
+  .hero-cta { display: inline-flex; align-items: center; gap: 12px; background: var(--caramel); color: #fff; padding: 16px 36px; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; font-weight: 700; opacity: 0; animation: fadeUp 0.8s 0.8s forwards; transition: background 0.3s, transform 0.2s; width: fit-content; }
   .hero-cta:hover { background: var(--mid-brown); transform: translateY(-2px); }
   .hero-right { position: relative; overflow: hidden; background: #1a0f08; }
-  .hero-img-placeholder {
-    width: 100%; height: 100%;
-    background: linear-gradient(135deg, #2C1A0E 0%, #4a2e1a 40%, #6B4226 100%);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 16px; color: rgba(245,240,232,0.3);
-  }
+  .hero-img-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #2C1A0E 0%, #4a2e1a 40%, #6B4226 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; color: rgba(245,240,232,0.3); }
   .hero-img-placeholder svg { width: 80px; height: 80px; opacity: 0.4; }
 
   /* ─── SECTIONS ─── */
@@ -111,26 +47,15 @@
   #menu { background: var(--foam); }
   .menu-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; flex-wrap: wrap; gap: 20px; }
   .menu-tabs { display: flex; gap: 0; border: 1.5px solid rgba(44,26,14,0.15); overflow-x: auto; flex-wrap: nowrap; }
-  .menu-tab {
-    padding: 10px 20px; font-size: 0.78rem; letter-spacing: 0.05em; font-weight: 600;
-    cursor: pointer; border: none; background: transparent; color: var(--text-light);
-    transition: all 0.25s; font-family: 'Noto Sans KR', sans-serif; white-space: nowrap;
-  }
+  .menu-tab { padding: 10px 20px; font-size: 0.78rem; letter-spacing: 0.05em; font-weight: 600; cursor: pointer; border: none; background: transparent; color: var(--text-light); transition: all 0.25s; font-family: 'Noto Sans KR', sans-serif; white-space: nowrap; }
   .menu-tab.active { background: var(--espresso); color: var(--cream); }
   .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px; }
   .menu-grid.hidden { display: none; }
-  .menu-card {
-    background: #fff; overflow: hidden; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid rgba(200,135,58,0.1);
-  }
+  .menu-card { background: #fff; overflow: hidden; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; border: 1px solid rgba(200,135,58,0.1); }
   .menu-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(44,26,14,0.12); }
   .menu-card-img { aspect-ratio: 16/9; background: linear-gradient(135deg, #e8dfd4, #c4a882); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
   .menu-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-  .menu-card-img-placeholder {
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    color: rgba(107,66,38,0.35); gap: 10px; width: 100%; height: 100%;
-    background: linear-gradient(135deg, #f0e8dc, #dcc9b0);
-  }
+  .menu-card-img-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(107,66,38,0.35); gap: 10px; width: 100%; height: 100%; background: linear-gradient(135deg, #f0e8dc, #dcc9b0); }
   .menu-card-img-placeholder svg { width: 40px; height: 40px; }
   .menu-card-body { padding: 20px 22px 24px; }
   .menu-card-name { font-size: 1.05rem; font-weight: 700; color: var(--espresso); margin-bottom: 6px; letter-spacing: -0.02em; }
@@ -145,11 +70,7 @@
   .gallery-item-inner { aspect-ratio: 16/9; background: rgba(255,255,255,0.05); position: relative; overflow: hidden; }
   .gallery-item-inner img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
   .gallery-item-inner:hover img { transform: scale(1.06); }
-  .gallery-placeholder {
-    width: 100%; height: 100%; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 12px;
-    color: rgba(245,240,232,0.2); background: rgba(255,255,255,0.03);
-  }
+  .gallery-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: rgba(245,240,232,0.2); background: rgba(255,255,255,0.03); }
 
   /* ─── ABOUT ─── */
   #about { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding: 120px 60px; }
@@ -179,30 +100,25 @@
   .footer-col a:hover { color: var(--latte); }
   .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; }
 
+  /* 로더 */
+  #globalLoader { position: fixed; inset: 0; background: var(--cream); z-index: 9999; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; color: var(--caramel); transition: opacity 0.5s; }
+
   @media (max-width: 900px) {
-    nav { padding: 16px 24px; }
-    .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; }
-    .hero-right { display: none; }
-    .hero-left { padding: 120px 24px 80px; }
-    section { padding: 70px 24px; }
-    #about { grid-template-columns: 1fr; padding: 70px 24px; }
-    .about-img-stack { height: 300px; }
-    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    nav { padding: 16px 24px; } .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; } .hero-right { display: none; } .hero-left { padding: 120px 24px 80px; }
+    section { padding: 70px 24px; } #about { grid-template-columns: 1fr; padding: 70px 24px; }
+    .about-img-stack { height: 300px; } .gallery-grid { grid-template-columns: 1fr 1fr; }
     .footer-top { grid-template-columns: 1fr; gap: 40px; }
   }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<div id="globalLoader">홈페이지 데이터를 불러오는 중입니다...</div>
+
 <nav id="mainNav">
-  <a href="#" class="nav-logo">우리동네<span>커피</span></a>
+  <a href="#" class="nav-logo" id="uiCafeName1">우리동네<span>커피</span></a>
   <ul class="nav-links">
     <li><a href="#menu">메뉴</a></li>
     <li><a href="#gallery">갤러리</a></li>
@@ -211,37 +127,24 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-left">
     <span class="hero-eyebrow">Coffee & Dessert</span>
-    <h1 class="hero-title">
-      우리동네,<br>
-      <em>특별한 커피 한 잔</em>
-    </h1>
+    <h1 class="hero-title">우리동네,<br><em>특별한 커피 한 잔</em></h1>
     <p class="hero-desc">정성껏 준비한 신선한 커피와 달콤한 디저트. 편안한 공간에서 당신의 하루를 더 향기롭게 만들어 드립니다.</p>
     <a href="#menu" class="hero-cta">메뉴 보기</a>
   </div>
   <div class="hero-right" id="heroImgWrapper">
     <div class="hero-img-placeholder" id="heroPlaceholder">
-      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="40" cy="40" r="28" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M28 40c0-6.6 5.4-12 12-12s12 5.4 12 12-5.4 12-12 12-12-5.4-12-12z" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="40" cy="40" r="4" fill="currentColor" opacity="0.4"/>
-        <path d="M40 16v8M40 56v8M16 40h8M56 40h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      <p>메인 이미지 (관리자 페이지에서 등록)</p>
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="28" stroke="currentColor" stroke-width="1.5"/><path d="M28 40c0-6.6 5.4-12 12-12s12 5.4 12 12-5.4 12-12 12-12-5.4-12-12z" stroke="currentColor" stroke-width="1.5"/><circle cx="40" cy="40" r="4" fill="currentColor" opacity="0.4"/><path d="M40 16v8M40 56v8M16 40h8M56 40h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <p>메인 이미지 (등록 전)</p>
     </div>
   </div>
 </section>
 
-<!-- MENU -->
 <section id="menu">
   <div class="menu-header">
-    <div>
-      <span class="section-label">Our Menu</span>
-      <h2 class="section-title">전체 메뉴</h2>
-    </div>
+    <div><span class="section-label">Our Menu</span><h2 class="section-title">전체 메뉴</h2></div>
     <div class="menu-tabs" id="menuTabs">
       <button class="menu-tab active" data-cat="coffee">커피</button>
       <button class="menu-tab" data-cat="nonCoffee">논커피</button>
@@ -249,32 +152,25 @@
       <button class="menu-tab" data-cat="dessert">디저트</button>
     </div>
   </div>
-
   <div class="menu-grid" id="menuGrid-coffee"></div>
   <div class="menu-grid hidden" id="menuGrid-nonCoffee"></div>
   <div class="menu-grid hidden" id="menuGrid-adeTea"></div>
   <div class="menu-grid hidden" id="menuGrid-dessert"></div>
 </section>
 
-<!-- GALLERY -->
 <section id="gallery">
   <span class="section-label" style="color:var(--latte)">Gallery</span>
   <h2 class="section-title" style="color:var(--cream)">공간 & 분위기</h2>
   <div class="gallery-grid" id="galleryGrid"></div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="about-img-stack">
     <div class="about-img-main" id="aboutImgMain">
-      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:12px;color:rgba(245,240,232,0.2)">
-        <span style="font-size:0.72rem;letter-spacing:0.12em">소개 이미지 1</span>
-      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:12px;color:rgba(245,240,232,0.2)"><span style="font-size:0.72rem;letter-spacing:0.12em">소개 이미지 1</span></div>
     </div>
     <div class="about-img-accent" id="aboutImgAccent">
-      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:8px;color:rgba(255,255,255,0.4)">
-        <span style="font-size:0.68rem;letter-spacing:0.1em">소개 이미지 2</span>
-      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:8px;color:rgba(255,255,255,0.4)"><span style="font-size:0.68rem;letter-spacing:0.1em">소개 이미지 2</span></div>
     </div>
   </div>
   <div class="about-content">
@@ -286,18 +182,15 @@
   </div>
 </section>
 
-<!-- NOTICE -->
 <section id="notice">
-  <span class="section-label">Notice</span>
-  <h2 class="section-title" style="margin-bottom:48px;">공지사항</h2>
+  <span class="section-label">Notice</span><h2 class="section-title" style="margin-bottom:48px;">공지사항</h2>
   <div id="noticeList"></div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div>
-      <span class="footer-logo">우리동네<span>커피</span></span>
+      <span class="footer-logo" id="uiCafeName2">우리동네<span>커피</span></span>
       <p style="font-size: 0.85rem; line-height: 1.8;">매일 정성껏 만드는 커피와 따뜻한 공간을 제공합니다.<br>여러분의 방문을 기다립니다.</p>
     </div>
     <div class="footer-col">
@@ -309,140 +202,91 @@
     </div>
     <div class="footer-col">
       <div class="footer-col-title">메뉴 안내</div>
-      <ul>
-        <li><a href="#menu">커피 / 논커피</a></li>
-        <li><a href="#menu">에이드 / 티 / 스무디</a></li>
-        <li><a href="#menu">디저트</a></li>
-      </ul>
+      <ul><li><a href="#menu">커피 / 논커피</a></li><li><a href="#menu">에이드 / 티 / 스무디</a></li><li><a href="#menu">디저트</a></li></ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 우리동네커피. All rights reserved.</span>
-    <a href="admin.html" style="color: rgba(245,240,232,0.2); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--latte)'" onmouseout="this.style.color='rgba(245,240,232,0.2)'">관리자 접속</a>
+    <span>© 2026. All rights reserved.</span>
+    <a href="admin.html" style="color: rgba(245,240,232,0.2); text-decoration: none;">관리자 접속</a>
   </div>
 </footer>
 
 <script>
-function loadData() {
-  return {
-    menus: JSON.parse(localStorage.getItem('cafe_menus') || 'null') || getDefaultMenus(),
-    gallery: JSON.parse(localStorage.getItem('cafe_gallery') || '[]'),
-    notices: JSON.parse(localStorage.getItem('cafe_notices') || 'null') || getDefaultNotices(),
-    hero: localStorage.getItem('cafe_hero_img') || '',
-    aboutMain: localStorage.getItem('cafe_about_main') || '',
-    aboutAccent: localStorage.getItem('cafe_about_accent') || '',
-  };
-}
+// ✨ 슈퍼베이스 API 설정 (발급받은 키와 URL)
+const SUPA_URL = 'https://lyhwxnvkhlcdirejrpko.supabase.co';
+const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx5aHd4bnZraGxjZGlyZWpycGtvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzMjk5ODUsImV4cCI6MjA5NTkwNTk4NX0.m4HhXOioAzep4-SLB5oy2RFBB9h6bHg4ieIK95UFtt4';
+const HEADERS = { 'apikey': SUPA_KEY, 'Authorization': 'Bearer ' + SUPA_KEY };
 
-function getDefaultMenus() {
-  return {
-    coffee: [
-      { name: '아메리카노', sub: '<span class="best-badge">⭐ BEST</span> | 테이크아웃 1,000원', price: '1,500원', img: '' },
-      { name: '카페라떼', sub: 'Hot / Ice', price: '2,500원', img: '' },
-      { name: '다방커피', sub: 'Hot / Ice', price: '2,500원', img: '' },
-      { name: '바닐라라떼', sub: 'Hot / Ice', price: '3,000원', img: '' },
-      { name: '카라멜마끼야또', sub: 'Hot / Ice', price: '3,300원', img: '' },
-      { name: '카페모카', sub: 'Hot / Ice', price: '3,300원', img: '' },
-    ],
-    nonCoffee: [
-      { name: '초코라떼', sub: 'Hot / Ice', price: '3,000원', img: '' },
-      { name: '녹차라떼', sub: 'Hot / Ice', price: '3,000원', img: '' },
-      { name: '고구마라떼', sub: 'Hot / Ice', price: '3,000원', img: '' },
-      { name: '딸기라떼', sub: 'Hot / Ice', price: '3,500원', img: '' },
-      { name: '우리동네 크림라떼', sub: '<span class="best-badge">⭐ BEST</span> | Hot / Ice', price: '3,500원', img: '' },
-    ],
-    adeTea: [
-      { name: '자몽에이드', sub: 'Ice', price: '3,200원', img: '' },
-      { name: '레몬에이드', sub: 'Ice', price: '3,200원', img: '' },
-      { name: '유자차', sub: 'Hot / Ice', price: '3,300원', img: '' },
-      { name: '자몽차', sub: 'Hot / Ice', price: '3,300원', img: '' },
-      { name: '레몬차', sub: 'Hot / Ice', price: '3,300원', img: '' },
-      { name: '복숭아 아이스티', sub: 'Ice', price: '3,300원', img: '' },
-      { name: '쌍화차', sub: '<span class="best-badge">⭐ BEST</span> | Hot / Ice', price: '4,000원', img: '' },
-      { name: '리치 캐모마일 티', sub: '<span class="best-badge">⭐ BEST</span> | Hot / Ice', price: '4,000원', img: '' },
-      { name: '분다버그', sub: 'Ice', price: '3,900원', img: '' },
-      { name: '플레인요거트 스무디', sub: 'Ice', price: '3,700원', img: '' },
-      { name: '딸기요거트 스무디', sub: 'Ice', price: '4,300원', img: '' },
-      { name: '꿀복숭아 슬러시', sub: 'Ice', price: '3,700원', img: '' },
-    ],
-    dessert: [
-      { name: '바스크치즈케이크', sub: '<span class="best-badge">⭐ BEST</span>', price: '5,500원', img: '' },
-      { name: '브라우니 바스크치즈케이크', sub: '디저트', price: '6,000원', img: '' },
-      { name: '초코범벅 (초코쿠키)', sub: '<span class="best-badge">⭐ BEST</span>', price: '1,500원', img: '' },
-      { name: '소금빵', sub: '디저트', price: '3,000원', img: '' },
-      { name: '크로와상', sub: '디저트', price: '3,000원', img: '' },
-    ]
-  };
-}
+async function fetchAllData() {
+  try {
+    const [menus, gallery, notices, settings] = await Promise.all([
+      fetch(`${SUPA_URL}/rest/v1/menus?select=*`, { headers: HEADERS }).then(r=>r.json()),
+      fetch(`${SUPA_URL}/rest/v1/gallery?select=*&order=id.desc`, { headers: HEADERS }).then(r=>r.json()),
+      fetch(`${SUPA_URL}/rest/v1/notices?select=*&order=id.desc`, { headers: HEADERS }).then(r=>r.json()),
+      fetch(`${SUPA_URL}/rest/v1/settings?select=*`, { headers: HEADERS }).then(r=>r.json())
+    ]);
+    
+    const setMap = {};
+    settings.forEach(s => setMap[s.setting_key] = s.setting_value);
 
-function getDefaultNotices() {
-  return [
-    { type: '공지', title: '우리동네커피 홈페이지가 새롭게 오픈했습니다.', date: '2026.06.01' },
-  ];
-}
-
-function renderMenus(menus) {
-  ['coffee','nonCoffee','adeTea','dessert'].forEach(cat => {
-    const grid = document.getElementById('menuGrid-' + cat);
-    grid.innerHTML = '';
-    (menus[cat] || []).forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'menu-card';
-      const imgContent = item.img ? `<img src="${item.img}" alt="${item.name}">` : 
-        `<div class="menu-card-img-placeholder">
-          <svg viewBox="0 0 48 48" fill="currentColor"><rect x="8" y="8" width="32" height="32" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="19" cy="19" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 32l10-8 6 5 6-9 10 12" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-          <span style="font-size:0.75rem; letter-spacing:0.1em;">이미지 없음</span>
-         </div>`;
-      card.innerHTML = `
-        <div class="menu-card-img">${imgContent}</div>
-        <div class="menu-card-body">
-          <div class="menu-card-name">${item.name}</div>
-          <div class="menu-card-sub">${item.sub}</div>
-          <div class="menu-card-price">${item.price}</div>
-        </div>`;
-      grid.appendChild(card);
-    });
-  });
-}
-
-function init() {
-  const d = loadData();
-  if (d.hero) {
-    document.getElementById('heroPlaceholder').style.display = 'none';
-    const wrapper = document.getElementById('heroImgWrapper');
-    const existing = wrapper.querySelector('img');
-    if (existing) existing.remove();
-    const img = document.createElement('img');
-    img.src = d.hero; img.style.cssText = 'width:100%;height:100%;object-fit:cover;opacity:0.85;transition:transform 8s ease;';
-    wrapper.appendChild(img);
-    wrapper.addEventListener('mouseover', () => img.style.transform = 'scale(1.03)');
-    wrapper.addEventListener('mouseout', () => img.style.transform = 'scale(1)');
-  }
-  
-  if (d.aboutMain) { document.getElementById('aboutImgMain').innerHTML = `<img src="${d.aboutMain}">`; }
-  if (d.aboutAccent) { document.getElementById('aboutImgAccent').innerHTML = `<img src="${d.aboutAccent}">`; }
-  
-  renderMenus(d.menus);
-  
-  const gGrid = document.getElementById('galleryGrid');
-  gGrid.innerHTML = '';
-  const slots = Math.max(d.gallery.length, 6);
-  for (let i = 0; i < slots; i++) {
-    const item = d.gallery[i];
-    if (item) {
-      gGrid.innerHTML += `<div class="gallery-item-inner"><img src="${item.url}" loading="lazy"></div>`;
-    } else {
-      gGrid.innerHTML += `<div class="gallery-item-inner"><div class="gallery-placeholder">
-        <svg viewBox="0 0 40 40" fill="currentColor" width="40" height="40"><rect x="4" y="4" width="32" height="32" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="15" cy="15" r="4" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M4 28l9-8 6 5 5-8 10 11" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
-        <span style="font-size:0.72rem;letter-spacing:0.12em;">사진 없음</span></div></div>`;
+    // 1. 카페 이름 & 히어로 이미지 설정
+    if(setMap['cafe_name']) {
+      document.title = setMap['cafe_name'];
+      document.getElementById('uiCafeName1').innerHTML = `${setMap['cafe_name']}<span>.</span>`;
+      document.getElementById('uiCafeName2').innerHTML = `${setMap['cafe_name']}<span>.</span>`;
     }
-  }
+    if(setMap['cafe_hero_img']) {
+      document.getElementById('heroPlaceholder').style.display = 'none';
+      const w = document.getElementById('heroImgWrapper');
+      w.innerHTML = `<img src="${setMap['cafe_hero_img']}" style="width:100%;height:100%;object-fit:cover;opacity:0.85;transition:transform 8s ease;">`;
+      w.addEventListener('mouseover', () => w.querySelector('img').style.transform = 'scale(1.03)');
+      w.addEventListener('mouseout', () => w.querySelector('img').style.transform = 'scale(1)');
+    }
+    if(setMap['cafe_about_main']) document.getElementById('aboutImgMain').innerHTML = `<img src="${setMap['cafe_about_main']}">`;
+    if(setMap['cafe_about_accent']) document.getElementById('aboutImgAccent').innerHTML = `<img src="${setMap['cafe_about_accent']}">`;
 
-  const nList = document.getElementById('noticeList');
-  nList.innerHTML = '';
-  d.notices.forEach(n => {
-    nList.innerHTML += `<div class="notice-item"><span class="notice-badge ${n.type==='이벤트'?'event':''}">${n.type}</span><span class="notice-title">${n.title}</span><span class="notice-date">${n.date}</span></div>`;
-  });
+    // 2. 메뉴 렌더링
+    const groupedMenus = { coffee: [], nonCoffee: [], adeTea: [], dessert: [] };
+    menus.forEach(m => { if(groupedMenus[m.category]) groupedMenus[m.category].push(m); });
+    
+    ['coffee','nonCoffee','adeTea','dessert'].forEach(cat => {
+      const grid = document.getElementById('menuGrid-' + cat);
+      grid.innerHTML = '';
+      groupedMenus[cat].forEach(item => {
+        const imgContent = item.image_url ? `<img src="${item.image_url}">` : `<div class="menu-card-img-placeholder"><svg viewBox="0 0 48 48" fill="currentColor"><rect x="8" y="8" width="32" height="32" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="19" cy="19" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 32l10-8 6 5 6-9 10 12" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></div>`;
+        grid.innerHTML += `<div class="menu-card">
+          <div class="menu-card-img">${imgContent}</div>
+          <div class="menu-card-body">
+            <div class="menu-card-name">${item.name}</div>
+            <div class="menu-card-sub">${item.sub_desc || ''}</div>
+            <div class="menu-card-price">${item.price}</div>
+          </div>
+        </div>`;
+      });
+    });
+
+    // 3. 갤러리 렌더링
+    const gGrid = document.getElementById('galleryGrid');
+    gGrid.innerHTML = '';
+    const slots = Math.max(gallery.length, 6);
+    for (let i = 0; i < slots; i++) {
+      if(gallery[i]) gGrid.innerHTML += `<div class="gallery-item-inner"><img src="${gallery[i].image_url}" loading="lazy"></div>`;
+      else gGrid.innerHTML += `<div class="gallery-item-inner"><div class="gallery-placeholder"><svg viewBox="0 0 40 40" fill="currentColor" width="40" height="40"><rect x="4" y="4" width="32" height="32" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4 28l9-8 6 5 5-8 10 11" stroke="currentColor" stroke-width="1.2" fill="none"/></svg></div></div>`;
+    }
+
+    // 4. 공지사항 렌더링
+    const nList = document.getElementById('noticeList');
+    nList.innerHTML = '';
+    notices.forEach(n => {
+      nList.innerHTML += `<div class="notice-item"><span class="notice-badge ${n.type==='이벤트'?'event':''}">${n.type}</span><span class="notice-title">${n.title}</span><span class="notice-date">${n.created_at}</span></div>`;
+    });
+
+  } catch(e) {
+    console.error(e);
+  } finally {
+    document.getElementById('globalLoader').style.opacity = '0';
+    setTimeout(() => document.getElementById('globalLoader').style.display = 'none', 500);
+  }
 }
 
 document.getElementById('menuTabs').addEventListener('click', e => {
@@ -452,11 +296,10 @@ document.getElementById('menuTabs').addEventListener('click', e => {
   document.querySelectorAll('.menu-grid').forEach(g => g.classList.add('hidden'));
   document.getElementById('menuGrid-' + e.target.dataset.cat).classList.remove('hidden');
 });
-
 window.addEventListener('scroll', () => document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 50));
-window.addEventListener('storage', () => init());
 
-init();
+// 데이터 불러오기 실행
+fetchAllData();
 </script>
 </body>
 </html>
