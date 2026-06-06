@@ -292,8 +292,16 @@ footer a{color:var(--text3);display:inline-flex;align-items:center;gap:.3rem;mar
   <div class="sh ao"><div class="sh-tag">LOCATION</div><div class="sh-title">오시는 길</div></div>
   <div class="map-wrap ao">
     <div class="map-grid">
-      <div class="map-frame">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d791.5!2d126.6583!3d37.4486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b789e5b2e3b1d%3A0x0!2z7J247LKcIOuvuOy2lO2ZgOq1rCDshozshLHroZwgMTgzLTExIDHsuLU!5e0!3m2!1sko!2skr!4v1" width="100%" height="100%" style="border:0;border-radius:var(--r)" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="map-frame" style="position:relative">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,var(--bg3) 0%,var(--border) 100%);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;text-align:center;padding:2rem">
+          <div style="font-size:3.5rem;line-height:1">📍</div>
+          <div style="font-family:var(--kr);font-size:1.1rem;font-weight:700;color:var(--text)">우리동네커피</div>
+          <div style="font-size:.88rem;color:var(--text2);line-height:1.6">인천 미추홀구 소성로 183-11 1층</div>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-top:.5rem">
+            <a href="https://map.naver.com/v5/search/%EC%9D%B8%EC%B2%9C%20%EB%AF%B8%EC%B6%94%ED%99%80%EA%B5%AC%20%EC%86%8C%EC%84%B1%EB%A1%9C%20183-11" target="_blank" style="padding:.7rem 1.5rem;background:#03C75A;color:white;border-radius:10px;font-size:.82rem;font-weight:600;display:inline-flex;align-items:center;gap:.4rem;transition:opacity .3s">🗺️ 네이버 지도</a>
+            <a href="https://map.kakao.com/?q=%EC%9D%B8%EC%B2%9C%20%EB%AF%B8%EC%B6%94%ED%99%80%EA%B5%AC%20%EC%86%8C%EC%84%B1%EB%A1%9C%20183-11" target="_blank" style="padding:.7rem 1.5rem;background:#FEE500;color:#3A1D1D;border-radius:10px;font-size:.82rem;font-weight:600;display:inline-flex;align-items:center;gap:.4rem;transition:opacity .3s">🗺️ 카카오맵</a>
+          </div>
+        </div>
       </div>
       <div class="map-info">
         <div class="map-info-card">
@@ -303,12 +311,6 @@ footer a{color:var(--text3);display:inline-flex;align-items:center;gap:.3rem;mar
           <div class="mi-row"><div class="mi-ico">🚗</div><div><div class="mi-label">주차</div><div class="mi-val" id="map-parking">주차 가능</div></div></div>
           <div class="mi-row"><div class="mi-ico">📸</div><div><div class="mi-label">인스타그램</div><div class="mi-val"><a id="map-insta" href="#" target="_blank">@wooridongne.coffee146</a></div></div></div>
         </div>
-        <a class="map-naver-btn" href="https://map.naver.com/v5/search/인천 미추홀구 소성로 183-11" target="_blank">
-          <span>🗺️</span> 네이버 지도에서 보기
-        </a>
-        <a class="map-kakao-btn" href="https://map.kakao.com/?q=인천 미추홀구 소성로 183-11" target="_blank">
-          <span>🗺️</span> 카카오맵에서 보기
-        </a>
       </div>
     </div>
   </div>
